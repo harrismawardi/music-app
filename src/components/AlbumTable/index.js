@@ -14,7 +14,7 @@ const AlbumTable = ({ artist }) => {
 
     useEffect(() => {
         const renderAlbums = () => {
-            return artistAlbums.map(album => <Album key={artistAlbums.indexOf(album)} chosenAlbum={album} />)
+            return artistAlbums.map(album => <Album title='album' key={artistAlbums.indexOf(album)} chosenAlbum={album} />)
         }
         setAlbumElements(renderAlbums)
     }, [submittedData])
@@ -24,7 +24,7 @@ const AlbumTable = ({ artist }) => {
     const handleSubmit = e => {
         e.preventDefault()
         setSubmittedData(e)
-        dispatch(newAlbum(e))
+        dispatch(() => (newAlbum(e)))
         e.target.reset()
     }
 
@@ -38,7 +38,7 @@ const AlbumTable = ({ artist }) => {
                     <th>favourite</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody title='artistAlbums'>
                 {albumElements}
                 <tr>
                     <td>

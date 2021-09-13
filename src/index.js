@@ -9,7 +9,6 @@ import { devToolsEnhancer } from 'redux-devtools-extension'
 import App from './App'
 import './index.css'
 
-
 const initState =
 {
     bloodOrange: [
@@ -26,28 +25,12 @@ const initState =
 
 }
 
-
-
-const myAction = {
-    type: "ADD_ALBUM",
-    payload:
-    {
-        artist: "michael",
-        album: {
-            name: "newalbum",
-            release_date: "2021",
-            img_path: "www.image.com"
-        }
-    }
-
-}
-
 const addAlbum = (state = initState, action) => {
     switch (action.type) {
         case "ADD_ALBUM":
             console.log(action.payload.artist)
             state[action.payload.artist].push(action.payload.album)
-        
+
             //.push(action.payload.album)
             return state
         default:
@@ -67,3 +50,5 @@ ReactDOM.render(
     </BrowserRouter>
 
     , document.getElementById('root'))
+
+export default {initState}

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { unmountComponentAtNode } from 'react-dom';
-import Album from './index'
+import Album from './'
 
 describe('Album', () => {
 
@@ -20,19 +20,19 @@ describe('Album', () => {
     })
 
     test('Does album name render', () => {
-        const albumTableCells = screen.queryAllByRole('cell')
-        expect(albumTableCells[0].textContent).toEqual('funky bunch')
+        const albumTableCell = screen.queryByRole('cell', {name: "name"})
+        expect(albumTableCell.textContent).toEqual('funky bunch')
     })
 
     test('does the release date render', () => {
-        const albumTableCells = screen.queryAllByRole('cell')
-        expect(albumTableCells[1].textContent).toEqual('2000')
+        const albumTableCell = screen.queryByRole('cell', {name: "year"})
+        expect(albumTableCell.textContent).toEqual('2000')
     })
 
     test('Does image tag render with correct link', () => {
-        const albumTableCells = screen.queryAllByRole('cell')
-        expect(albumTableCells[2].firstChild.nodeName).toBe('IMG')
-        expect(albumTableCells[2].firstChild.src).toBe('https://link.com/')
+        const albumTableCell = screen.queryByRole('cell', {name: 'img'})
+        expect(albumTableCell.firstChild.nodeName).toBe('IMG')
+        expect(albumTableCell.firstChild.src).toBe('https://link.com/')
     })
 
 })

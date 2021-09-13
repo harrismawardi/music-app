@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "coverage": "jest --detectOpenHandles --coverage --setupFilesAfterEnv ./src/test/setupTests.js",
     "test": "jest --watchAll --detectOpenHandles --setupFilesAfterEnv ./src/test/setupTests.js",
     "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
     "build": "webpack --config config/webpack.config.production.js"
@@ -46,3 +47,4 @@
     "testEnvironment": "jsdom"
   }
 }
+
